@@ -1,0 +1,102 @@
+@import "../../../asset/style/dominant.scss";
+ul{
+   &#asideNav{
+       position: fixed;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       background-color: $aside-navBgColor;
+       width: $aside-navWidth;
+       >li{
+           @include flexLayout;
+           flex-direction: column;
+           &:not(:first-child){
+               a{
+                   @include flexLayout;
+                   flex-direction: column;
+                   height: $aside-navHeight;
+                   width: 100%;
+                   cursor: pointer;
+                   i{
+                       &.navIcon{
+                           width: $aside-navIconSize;
+                           height: $aside-navIconSize;
+                           margin: 24px 0 12px 0;
+                           background-image: url("../../../asset/images/iconMenu.png");
+                           background-repeat: no-repeat;
+                           background-position-x:0;
+                       }
+                       &.nav-chat{
+                           background-position-y:0;
+                           position: relative;
+                           b{
+                               position: absolute;
+                               right: -9px;
+                               top: -8px;
+                               height: $aside-chatNumSize;
+                               min-width: $aside-chatNumSize;
+                               padding: 0 5px;
+                               display: inline-block;
+                               background-color: $aside-chatTipColor;
+                               border-radius: 50%;
+                               color: $font-Whitecolor;
+                               font-size: 12px;
+                               font-weight: 400;
+                               text-align: center;
+                               line-height: $aside-chatNumSize;
+                               font-style: normal;
+                               box-sizing: border-box;
+                           }
+                       }
+                       &.nav-monitor{
+                           background-position-y: -$aside-navIconSize * 1;
+                       }
+                       &.nav-service{
+                           background-position-y: -$aside-navIconSize * 2;
+                       }
+                       &.nav-data{
+                           background-position-y: -$aside-navIconSize * 3;
+                       }
+                       &.nav-record{
+                           background-position-y: -$aside-navIconSize * 4;
+                       }
+                       &.nav-leaveMsg{
+                           background-position-y: -$aside-navIconSize * 5;
+                       }
+                       &.nav-setting{
+                           background-position-y: -$aside-navIconSize * 6;
+                       }
+                   }
+                   span{
+                       font-size: $aside-fontSize;
+                       color: $aside-navFontColor;
+                   }
+                   &.navActive,&:hover{
+                       background-color: $aside-activeBgColor;
+                       .navIcon{
+                           background-position-x:-$aside-navIconSize;
+                       }
+                   }
+               }
+           }
+           &:first-child{
+               margin: 30px 0 40px 0;
+               >.headPortrait{
+                   position: relative;
+                   .iconfont{
+                       position: absolute;
+                       right: -12px;
+                       bottom: -8px;
+                       color: $chart-onlineStateColor;
+                       font-size: 25px;
+                   }
+               }
+               >p{
+                   margin-top: 12px;
+                   font-size: $aside-fontSize;
+                   color: $aside-navFontColor;
+               }
+           }
+       }
+   }
+}

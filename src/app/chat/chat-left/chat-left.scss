@@ -1,0 +1,150 @@
+@import '../../../asset/style/common.scss';
+
+$imgUrl: '../../../asset/images/';
+$blur-color: #539df1;
+
+.member-list {
+    width: $member-list-width;
+    border-right: 1px solid $border-color;
+    background: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    .search-wrap{
+        padding: 10px;
+        height: 36px;
+        .search {
+            @include boxSizing();
+            width: 100%;
+            height: 36px;
+            padding: 8px 10px;
+            color: #ccc;
+            font-size: 12px;
+            border: 1px solid $border-color;
+        }
+    }
+    .member-type{
+        height: 58px;
+        .member-type-item{
+            width: 50%;
+            display: inline-block;
+            text-align: center;
+            a{
+                background: url('#{$imgUrl}cur-conver.png') no-repeat center top;
+                display: inline-block;
+                padding-top: 30px;
+                color: #878787;
+                font-size: 12px;
+                position: relative;
+                &.cur.active, &:hover{
+                    background-image: url('#{$imgUrl}cur-conver-active.png');
+                    color: $blur-color;
+                }
+                &.colleague {
+                    background-image: url('#{$imgUrl}colleague-conver.png');
+                    .chat-bubble {
+                        left: 35px;
+                    }
+                    &.active, &:hover {
+                        background-image: url('#{$imgUrl}colleague-conver-active.png');
+                        color: $blur-color;
+                    }
+                }
+                .chat-bubble {
+                    position: absolute;
+                    display: block;
+                    top: -2px;
+                    left: 29px;
+                    height: 20px;
+                    padding: 0 5px;
+                    @include boxSizing();
+                    min-width: 20px;
+                    border-radius: 10px;
+                    background: $bubble-color;
+                    font-weight: normal;
+                    font-style: normal;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .member-item{
+        border-top: 1px solid $border-color;
+        background: #fff;
+        flex: 1;
+        overflow-y: auto;
+       @include scorllStyle;
+        .item {
+            height: 90px;
+            padding: 15px 20px 15px 10px;
+            @include boxSizing();
+            display: flex;
+            cursor: pointer;
+            width: 100%;
+            &:hover, &.active {
+                background: #e3e3e3;
+            }
+            .head {
+                width: 58px;
+                height: 58px;
+                border: 1px solid $border-color;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    min-height: 100%;
+                }
+            }
+            .content {
+                flex: 1;
+                padding-left: 10px;
+                @include boxSizing();
+                font-size: 14px;
+                overflow: hidden;
+                .name-wrap{
+                    position: relative;
+                    padding: 5px 60px 4px 0;
+                    width: 100%;
+                    @include boxSizing();
+                    .time {
+                        padding-left: 16px;
+                        position: absolute;
+                        right: 0;
+                        top: 5px;
+                        background: url('#{$imgUrl}icon-clock.png') no-repeat 0 50%;
+                        color: #b9b9b9;
+                    }
+                    .name{
+                        display: inline-block;
+                        @include ellipsis();
+                        @include boxSizing();
+                        max-width: 100%;
+                        padding-right: 60px;
+                        height: 22px;
+                        position: relative;
+                        color: #333;
+                        .tips {
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            margin-top: -10px;
+                            height: 17px;
+                            width: 40px;
+                            background: $blur-color;
+                            border-radius: 4px;
+                            text-align: center;
+                            line-height: 17px;
+                            color: #fff;
+                            font-size: 12px;
+                            font-style: normal;
+                            box-shadow: 0 3px 6px rgba(83, 157, 241, .7);
+                        }
+                    }
+                }
+                .message{
+                    @include ellipsis();
+                    color: #7b7b7b;
+                }
+            }
+        }
+    }
+}
+

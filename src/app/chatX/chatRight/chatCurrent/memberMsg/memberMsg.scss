@@ -1,0 +1,87 @@
+@import "../../../../../asset/style/dominant.scss";
+$memberMsg-titleBgColor:#efefef;
+$memberMsg-titleFontColor:#666;
+$memberMsg-titleIconColor:#a0aab1;
+$memberMsg-contentFontColor:#7b7b7b;
+$memberMsg-contentLightColor:#5fa7f9;
+$memberMsg-titleHight:24px;
+$memberMsg-btnCreateWidth:190px;
+$memberMsg-btnCreateHeight:34px;
+$memberMsg-btnAddWidth:60px;
+$memberMsg-btnAddHeight:24px;
+.memberMsg{
+  >li{
+    margin-bottom: 30px;
+    >header{
+      height: $memberMsg-titleHight;
+      background-color: $memberMsg-titleBgColor;
+      padding-left: 10px;
+      @include flexLayout;
+      justify-content: flex-start;
+      >.iconfont{
+        color: $memberMsg-titleIconColor;
+        margin-right: 3px;
+      }
+      >span{
+        font-size: 14px;
+        color:$memberMsg-titleFontColor;
+      }
+    }
+    >ul{
+      margin-left: 14px;
+      >li{
+        margin-top: 10px;
+        font-size: 14px;
+        color: $memberMsg-contentFontColor;
+        >span{
+          color: $memberMsg-contentLightColor;
+          &.turnDetail{
+            color: $dominant-hue;
+            margin-left: 30px;
+            cursor: pointer;
+            .iconfont{
+              color: $dominant-hue;
+              font-size: 12px;
+            }
+          }
+        }
+        &.btnCreate{
+          margin-top: 20px;
+          cursor: pointer;
+          width: $memberMsg-btnCreateWidth;
+          height: $memberMsg-btnCreateHeight;
+          border-radius: $border-radius;
+          border: 1px solid $memberMsg-contentLightColor;
+          @include flexLayout;
+          justify-content: center;
+          .iconfont{
+            color: $memberMsg-contentLightColor;
+            margin-right: 5px;
+          }
+          span{
+            font-size: 14px;
+            color: $memberMsg-contentLightColor;
+          }
+        }
+        &.btnAdd{
+          @include flexLayout;
+          justify-content: center;
+          cursor: pointer;
+          width: $memberMsg-btnAddWidth;
+          height: $memberMsg-btnAddHeight;
+          border-radius: $border-radius;
+          background-color: $dominant-hue;
+          span{
+            font-size: 14px;
+            color: $font-Whitecolor;
+          }
+          .iconfont{
+            font-size: 12px;
+            color: $font-Whitecolor;
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import "../../../../asset/style/dominant.scss";
+$chatRight-tabsTitleWidth:102px;
+$chatRight-tabsTitleHeight:25px;
+$chatRight-switchBgColor:#cae1fc;
+$chatRight-waitBgColor:#f9c1c7;
+$chatRight-waitFontColor:#e83b4c;
+ul{
+  &.rightHeader{
+    height: $chartHeader-userAreaHeight;
+    background-color: $chatLeft-headerBgColor;
+    @include flexLayout;
+    justify-content: flex-start;
+    align-items: flex-end;
+    >li{
+      width: $chatRight-tabsTitleWidth;
+      height: $chatRight-tabsTitleHeight;
+      cursor: pointer;
+      font-size: 12px;
+      text-align: center;
+      line-height: $chatRight-tabsTitleHeight;
+      &:first-child{
+        background-color: $chatRight-switchBgColor;
+        color: $dominant-hue;
+        margin-right: 10px;
+      }
+      &:last-child{
+        background-color: $chatRight-waitBgColor;
+        color: $chatRight-waitFontColor;
+      }
+    }
+  }
+}
+div{
+  &.chatRightTab{
+    height: calc(100% - #{$chartHeader-userAreaHeight} - 10px);
+    >ul{
+      margin: 10px 0 20px 0;
+    }
+    >section{
+      height: calc(100% - 68px);
+      overflow-y: auto;
+      @include scorllRebuild;
+      padding: 0 10px;
+
+    }
+  }
+}

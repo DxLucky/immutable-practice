@@ -1,0 +1,13 @@
+@import '../../../asset/style/common.scss';
+
+.chat-right{
+    background: #efefef;
+    padding-left: 10px;
+    flex: 1;
+    .chat-right-content{
+        height: 100%;
+        background: #fff;
+        border-left: 1px solid $border-color;
+        display: flex;
+    }
+}

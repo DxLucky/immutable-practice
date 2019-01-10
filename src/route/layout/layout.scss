@@ -1,0 +1,66 @@
+@import "../../asset/style/dominant.scss";
+#mainBox{
+  >.bodyBox{
+    >section{
+      &.sectionBody{
+        position: absolute;
+        top: 0;
+        left: $aside-navWidth;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+        @include scorllRebuild;
+        >ul{
+          &.headerArea{
+            min-height: $header-height;
+            border-bottom: 1px solid $border-color;
+            @include flexLayout;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 20px 0 12px;
+            >li{
+              &:last-child{
+                line-height:$header-height;
+                @include flexLayout;
+                span{
+                  font-size: 14px;
+                  color: $chatCount-fontColor;
+                }
+              }
+              &:first-child{
+                @include flexLayout;
+                justify-content: flex-start;
+                >div{
+                  &.btnTab{
+                    width: $btnTab-width;
+                    height: $btnTab-height;
+                    background-color: $btnTab-bgColor;
+                    @include flexLayout;
+                    justify-content: flex-end;
+                    span{
+                      font-size: 14px;
+                    }
+                    .iconfont{
+                      margin: 0 10px 0 10px;
+                      font-size: 16px;
+                      color: $navClose-fontColor;
+                      cursor: pointer;
+                      &:hover{
+                        color: $dominant-hue;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        >section{
+          &.contentBody{
+            height: calc(100% - #{$header-height} - 1px);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "../../../asset/style/dominant.scss";
+$chatRight-width:602px;
+.chatRight{
+  box-sizing: border-box;
+  width: $chatRight-width;
+  height: 100%;
+  overflow-y: auto;
+  @include scorllRebuild;
+}

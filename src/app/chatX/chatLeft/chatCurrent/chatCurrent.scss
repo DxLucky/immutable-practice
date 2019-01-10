@@ -1,0 +1,77 @@
+@import "../../../../asset/style/dominant.scss";
+ul{
+  &.currentChat{
+    >li{
+      height: $memberList-height;
+      @include flexLayout;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      padding: 0 20px 0 10px;
+      transition: all .1s linear;
+      cursor: pointer;
+      >div{
+        &.avatarWrap{
+          height: $avatar-size;
+          width: $avatar-size;
+          @include flexLayout;
+          justify-content: center;
+          margin-right: 10px;
+          >img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &.memberInfo{
+          width: calc(100% - #{$avatar-size} - 20px);
+          >ul:first-child{
+            @include flexLayout;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            height: 19px;
+            >li{
+              &:first-child{
+                @include flexLayout;
+                justify-content: flex-start;
+                span{
+                  font-size: 14px;
+                  margin-right: 15px;
+                }
+                button{
+                  height: 19px;
+                  width: 40px;
+                  border-radius: $border-radius;
+                  background-color: $dominant-hueLight;
+                  color: $font-Whitecolor;
+                  font-size: 12px;
+                  border: 1px solid $dominant-hue;
+                  box-sizing: border-box;
+                }
+              }
+              &:last-child{
+                .iconfont{
+                  font-size: 15px;
+                  color: $login-inputBorder;
+                  margin-right: 2px;
+                }
+                span{
+                  font-size: 14px;
+                  color: $login-inputBorder;
+                }
+              }
+            }
+          }
+          >p.lastMsg{
+            width: 100%;
+            @include ellipsis;
+            font-size: 14px;
+            color: $memberList-lastMsgColor;
+          }
+        }
+      }
+      &.activeChat,&:hover{
+        background-color: $memberList-bgColor;
+        transition: all .1s linear;
+      }
+    }
+  }
+}

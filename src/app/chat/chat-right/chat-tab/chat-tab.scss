@@ -1,0 +1,510 @@
+@import '../../../../asset/style/common.scss';
+
+$imgUrl: '../../../../asset/images/';
+$blur-color: #539df1;
+$wathet-blur-color: #5fa7f9;
+.chat-tab {
+    display: flex;
+    flex-direction: column;
+    flex: 42;
+    // overflow: hidden;
+    .chat-tab-top{
+        height: 84px;
+        background: #f8f8f8;
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        .tab-hover{
+            display: inline-block;
+            cursor: pointer;
+            width: 102px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            font-size: 12px;
+            background: #cae1fc;
+            color: $wathet-blur-color;
+            margin-right: 10px;
+            &:nth-child(2) {
+                background: #f9c1c7;
+                color: #e83b4c;
+            }
+            &:nth-child(3) {
+                background: #cdf1b5;
+                color: #487b2e;
+            }
+        }
+        .conversation-pop{
+            display: none;
+            width: 78.688%;
+            position: absolute;
+            top: 84px;
+            left: 0;
+            background: #fff;
+            border: 1px solid $border-color;
+            border-bottom: none;
+            box-shadow: 0 0 20px rgba(83, 157, 241, .34);
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+            cursor: auto;
+            &.active {
+                display: block;
+            }
+            li {
+                height: 26px;
+                border-bottom: 1px solid $border-color;
+                padding: 6px 20px 6px 12px;
+                line-height: 26px;
+                display: flex;
+                .name {
+                    color: $wathet-blur-color;
+                    padding: 0 5px;
+                }
+                .text {
+                    @include ellipsis();
+                    @include boxSizing();
+                    padding-right: 5px;
+                    display: inline-block;
+                    flex: 66.52;
+                    color: #666;
+                    font-size: 14px;
+                }
+                .btn {
+                    flex: 33.48;
+                    display: inline-block;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: space-between;
+                    a {
+                        display: inline-block;
+                        text-align: center;
+                        border: 1px solid $blur-color;
+                        border-radius: 4px;
+                        line-height: 24px;
+                        font-size: 12px;
+                        color: $blur-color;
+                        padding: 0 13px;
+                    }
+                    .overlook {
+                        color: #fff;
+                        background: $blur-color;
+                    }
+                }
+            }
+        }
+    }
+    .chat-tab-content{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid $border-color;
+        border-left: 1px solid $border-color;
+        padding-top: 10px;
+        *{
+            word-break: break-all;
+        }
+        .chat-tab-items {
+            display: flex;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            border-top: 1px solid $border-color;
+            border-bottom: 1px solid $border-color;
+            .chat-tab-item {
+                flex: 1;
+                border-right: 1px solid $border-color;
+                font-size: 12px;
+                color: #94a0ad;
+                cursor: pointer;
+                &.active {
+                    background: #94a0ad;
+                    color: #f8f8f8;
+                }
+            }
+        }
+        .chat-tab-inner{
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 10px;
+        }
+    }
+    // 会员信息
+    .chat-tab-vip-inner-content, .chat-inner-content{
+        .item{
+            padding-bottom: 30px;
+        }
+        .title {
+            font-size: 14px;
+            color: #666;
+            height: 24px;
+            line-height: 24px;
+            padding-left: 30px;
+            font-weight: normal;
+            background: #efefef url('#{$imgUrl}cur-order.png') no-repeat 10px center;
+            &.vip {
+                background-image: url('#{$imgUrl}vip.png');
+            }
+            &.recode {
+                background-image: url('#{$imgUrl}recode.png');
+            }
+        }
+    }
+    .lists{
+        .list {
+            color: #7b7b7b;
+            font-size: 14px;
+            padding-top: 6px;
+            padding-left: 10px;
+            .name {
+                color: $wathet-blur-color;
+            }
+            .link {
+                color: $blur-color;
+                font-size: 12px;
+                display: inline-block;
+                margin-left: 30px;
+            }
+        }
+    }
+    .create-work-order{
+        display: inline-block;
+        border-radius: 3px;
+        margin-top: 20px;
+        margin-left: 10px;
+        border: 1px solid $wathet-blur-color;
+        color: $wathet-blur-color;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 29px 0 45px;
+    }
+    .add-remaker{
+        display: inline-block;
+        margin-top: 14px;
+        margin-left: 10px;
+        height: 22px;
+        line-height: 22px;
+        font-size: 14px;
+        background: $blur-color url('#{$imgUrl}add.png') no-repeat 11px center;
+        border: 1px solid $wathet-blur-color;
+        color: #fff;
+        padding: 0 12px 0 25px;
+        border-radius: 3px;
+        &.goback{
+            background-image: none;
+            padding: 0 18px;
+        }
+    }
+    .edit-recode{
+        padding-top: 20px;
+        textarea {
+            vertical-align: top;
+            border: 1px solid #ececec;
+            width: 200px;
+            height: 116px;
+            padding: 5px;
+        }
+    }
+    .chat-tab-inner-content{
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+    
+    // 快捷回复
+    .chat-inner-content{
+        .short-reply-search{
+            display: flex;
+            line-height: 36px;  
+            margin-bottom: 30px;            
+            .text {
+                display: inline-block;
+                width: 35px;
+                color: #666;
+                font-size: 12px;  
+            }
+            .ipt {
+                flex: 1;
+                height: 26px;
+                border: 1px solid #ececec;
+                padding: 5px;
+                line-height: 26px;
+                background: #fdfdfd;
+            }
+            .btn {
+                width: 46px;
+                height: 36px;
+                padding-left: 36px;
+                font-size: 13px;
+                color: #f8f8f8;
+                margin-left: 10px;
+                border-radius: 4px;
+                background: $blur-color url('#{$imgUrl}search.png') no-repeat 19px center;
+            }
+        }
+        .short-reply-item{
+            margin-bottom: 10px;
+            * {
+                font-size: 14px;
+                color: #666;
+            }
+            dt {
+                background: url('#{$imgUrl}right.png') no-repeat 0 center;
+            }
+            dt, dd {
+                padding-left: 14px;
+                margin-bottom: 10px;
+                span {
+                    cursor: pointer;
+                }
+            }
+            dd {
+                display: none;
+                span:hover {
+                    color: $wathet-blur-color
+                }
+            }
+            &.active {
+                dt {
+                    background-image: url('#{$imgUrl}tint-down.png');
+                }
+                dd {
+                    display: block;
+                }
+            }
+        }
+    
+    }
+    // 订单查询
+    .chat-inner-query-content{
+        .short-reply-search{
+            margin-bottom: 20px;
+            .text {
+                width: 51px;
+            }
+        }
+        .order-tab {
+            width: 288px;
+            margin: 0 auto;
+            border: 1px solid $blur-color;
+            .order-tab-item {
+                display: inline-block;
+                width: 50%;
+                height: 36px;
+                line-height: 36px;
+                text-align: center;
+                cursor: pointer;
+                color: $blur-color;
+                font-size: 12px;
+                &.active {
+                    background: $blur-color;
+                    color: #fff;
+                }
+            }
+        }
+        .order-tab-content {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px solid $border-color;
+            text-align: left;
+            overflow: hidden;
+            table-layout: fixed;
+            tr {
+                border-bottom: 1px solid $border-color;
+                height: 42px;
+                font-size: 14px;
+                th {
+                    background: #f2f2f2;
+                    padding-left: 10px;
+                }
+                td {
+                    @include ellipsis();
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                .last{
+                    padding-right: 0;
+                    width: 50px;
+                }
+            }
+            tbody {
+                tr {
+                    &:nth-child(even) {
+                        background: #f9fafb;
+                    }
+                }
+            }
+            .link {
+                font-size: 14px;
+            }
+        }
+        .order-detail {
+            .title {
+                height: 34px;
+                padding: 4px 0;
+                border: 1px solid #efefef;
+                background: #f2f2f2;
+                display: flex;
+                overflow: hidden;
+                span {
+                    display: inline-block;
+                }
+                .left {
+                    flex: 16;
+                }
+                .center {
+                    flex: 68;
+                    display: flex;
+                    justify-content: space-between;
+                    overflow: hidden;
+                    .btn{
+                        display: inline-block;
+                        flex: 1;
+                        border: 1px solid $wathet-blur-color;
+                        text-align: center;
+                        font-size: 14px;
+                        color: $wathet-blur-color;
+                        line-height: 34px;
+                        background: #fff;
+                        border-radius: 4px;
+                        &:nth-child(2) {
+                            margin-left: 30px;
+                        }
+                        .icon {
+                            background: url('#{$imgUrl}send-msg.png') no-repeat 0 0;
+                            display: inline-block;
+                            vertical-align: middle;
+                            width: 19px;
+                            height: 17px;
+                            margin-right: 7px;
+                        }
+                    }
+                }
+                .right {
+                    flex: 16;
+                }
+            }
+        }
+    }
+    .single-item {
+        padding: 20px 0 30px 0;
+        .lists {
+            margin-bottom: 10px;
+        }
+        .list {
+            padding-left: 0;
+        }
+    }
+    .link {
+        font-size: 12px;
+        color: $blur-color;
+    }
+    // 工单查询
+    .chat-inner-work-content {
+        .short-reply-search {
+            .text {
+                width: 100px;
+            }
+            .search-type {
+                width: 90px;
+                height: 36px;
+                .custom-select-text {
+                    line-height: 36px;
+                }
+                .custom-select-items {
+                    top: 36px;
+                }
+            }
+        }
+        .order-tab-content {
+            margin-bottom: 30px;
+        }
+        .work-order-detail {
+            background-image: url('#{$imgUrl}work-order-detail.png');
+        }
+        .add-work {
+            background-image: url('#{$imgUrl}add-work.png');
+        }
+        .work-order-form {
+            padding-left: 10px;
+            display: flex;
+            .left, .right {
+                @include boxSizing();
+                flex: 1;
+            }
+            .left {
+                padding-right: 10px;
+            }
+            .right {
+                padding-left: 10px;
+            }
+            .row {
+                display: flex;
+                margin: 10px 0;
+                .key {
+                    width: 60px;
+                    text-align: right;
+                    padding-right: 10px;
+                    font-size: 14px;
+                    color: #7b7b7b;
+                }
+                &.bills-type {
+                    .key {
+                        color: #e83b4c;
+                    }
+                }
+                .val {
+                    flex: 1;
+                    position: relative;
+                }
+                input {
+                    height: 24px;
+                    line-height: 18px;
+                    padding: 3px 5px;
+                    width: 100%;
+                    @include boxSizing();
+                    border: 1px solid $border-color;
+                    vertical-align: middle;
+                }
+                .select {
+                    width: 100%;
+                }
+                .date {
+                    pointer-events: none;
+                    width: 18px;
+                    height: 17px;
+                    display: block;
+                    position: absolute;
+                    right: 10px;
+                    top: 3px;
+                    background: url('#{$imgUrl}date.png') no-repeat 0 0;
+                }
+            }
+        }
+    }
+    /*---滚动条默认显示样式--*/
+    ::-webkit-scrollbar-thumb{
+        background-color: #dedede;
+        height: 90px;
+        border-radius: 4px;
+    }
+    /*---鼠标点击滚动条显示样式--*/
+    ::-webkit-scrollbar-thumb:hover{
+        height: 90px;
+        border-radius: 4px;
+    }
+    /*---滚动条大小--*/
+    ::-webkit-scrollbar{
+        width: 8px;
+        height: 90px;
+    }
+    /*---滚动框背景样式--*/
+    ::-webkit-scrollbar-track-piece{
+        background-color: #fff;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,7 @@
+@import "../../asset/style/dominant.scss";
+.chatBox{
+  @include flexLayout;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  height: 100%;
+}

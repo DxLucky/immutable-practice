@@ -1,0 +1,136 @@
+@import "../../asset/style/dominant";
+@mixin fullScreen{
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top:0;
+}
+$login-input-width:230px;
+$login-input-height:35px;
+$login-button-width:230px;
+$login-button-height:30px;
+$loginInput-paddingLeft:40px;
+#loginBox{
+  @include flexLayout;
+  @include fullScreen;
+  justify-content:center ;
+  background-image: url("../../asset/images/loginBg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  overflow: hidden;
+  >div{
+    &.loginHeader{
+      height: $loginHeader-height;
+      background-color: $loginHeader-bgColor;
+      @include flexLayout;
+      padding-left: $loginHeader-logoPaddding;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    &.loginItem{
+      height: $loginItem-boxHeight;
+      width: $loginItem-boxWidth;
+      background-color: $font-Whitecolor;
+      box-shadow: 0 0 20px $loginItem-shadow;
+      border-radius: $border-radius;
+      @include flexLayout;
+      justify-content: center;
+      align-items: flex-start;
+      >div{
+        &:first-child{
+          width: 330px;
+          >p{
+            margin: 50px 0 30px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: $dominant-hue;
+          }
+          >div{
+            &.inputArea{
+             width:100%;
+             height: $loginInput-height;
+             font-size: 14px;
+             border: 1px solid $login-inputBorder;
+             color: $login-inputFontColor;
+             background-color: #faf9f9;
+             @include flexLayout;
+             justify-content: flex-start;
+             position: relative;
+             border-radius: $border-radius;
+             >img{
+               margin: 0 14px 0 12px;
+             }
+             input{
+               height: 100%;
+               border: none;
+               width:calc(100% - #{$loginInput-paddingLeft});
+               background-color: transparent;
+               font-size: 14px;
+             }
+             p{
+               height: 100%;
+               position: absolute;
+               right: 0;
+               top: 0;
+               @include flexLayout;
+               justify-content: flex-start;
+               span{
+                 margin: 0 10px 0 5px;
+                 font-size: 12px;
+                 color: #ff3333;
+               }
+             }
+           }
+            &.pwdInput{
+              margin: 20px 0 12px 0;
+            }
+            &.warnTips{
+              background-color: #fef0f0;
+              border: 1px solid #ff3333;
+            }
+            &.inputFocus{
+              border: 1px solid $dominant-hue;
+              background-color: transparent;
+            }
+            &.buttonArea{
+             div{
+               height: $loginInput-height;
+               background-color: $dominant-hue;
+               border-radius: $border-radius;
+               margin-top: 26px;
+               @include flexLayout;
+               justify-content: center;
+               align-items: center;
+               img{
+                 margin-right: 10px;
+               }
+               span{
+                 color: $font-Whitecolor;
+                 font-size: 16px;
+               }
+               &:hover{
+                 cursor: pointer;
+                 background-color: $dominant-hueLight;
+               }
+             }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//淡入淡出动画
+@keyframes fadeInOut {
+  0%{opacity:0}
+  20%{opacity:1}
+  80%{opacity:1}
+  100%{opacity:0}
+}
+.fadeAnimation{
+  animation:fadeInOut 1s linear both;
+}

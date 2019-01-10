@@ -1,0 +1,226 @@
+@import "../../../../asset/style/dominant.scss";
+@import "../../../../asset/style/common.scss";
+
+.ChatCurrentCenter{
+  height: 100%;
+}
+.chatCenterHeader{
+  width: 100%;
+  >li{
+    &:first-child{
+      height: $chartHeader-userAreaHeight;
+      background-color: $chatLeft-headerBgColor;
+      @include flexLayout;
+      justify-content: flex-start;
+      >img{
+        width: $chart-userAvatarSize;
+        height: $chart-userAvatarSize;
+        margin: 0 11px 0 10px;
+      }
+      >div{
+        li{
+          &:first-child{
+            >span{
+              &.userName{
+                font-size: $chart-userNameSize;
+                margin-right: 10px;
+              }
+            }
+            >p{
+              position: relative;
+              bottom: 2px;
+              display: inline-block;
+              >img{
+                margin-right: 4px;
+              }
+              >span{
+                &.msgFrom{
+                  font-size: 10px;
+                  position: relative;
+                }
+              }
+            }
+          }
+          &:last-child{
+            margin-top: 5px;
+            @include flexLayout;
+            justify-content: flex-start;
+            .iconfont{
+              color: $chart-onlineStateColor;
+              font-size: 16px;
+              position: relative;
+              top: 2px;
+              margin-right: 4px;
+            }
+            span{
+              &.entryState{
+                font-size: $chart-userNameSize;
+                color: $chart-entryStateColor;
+              }
+            }
+          }
+        }
+      }
+    }
+    &:last-child{
+      height: $chartHeader-chartHelpAreaHeight;
+      background-color: $chartHeader-chartHelpBgColor;
+      border-top: 1px solid $chartHeader-chartHelpBorderColor;
+      border-bottom: 1px solid $chartHeader-chartHelpBorderColor;
+      border-right: 1px solid $chartHeader-chartHelpBorderColor;
+      border-left: 1px solid $chartHeader-chartHelpBgColor;
+      box-sizing: border-box;
+      @include flexLayout;
+      justify-content: flex-end;
+      padding-right: 20px;
+      >button{
+        width: $chart-btnWidth;
+        height: $chart-btnHeight;
+        background-color: $font-Whitecolor;
+        border: 1px solid $dominant-hue;
+        color: $dominant-hue;
+        border-radius: $border-radius;
+        font-size: 12px;
+        cursor: pointer;
+        &:nth-of-type(2){
+          margin: 0 30px 0 10px;
+        }
+        &:not(:last-child){
+          &:hover{
+            color: $dominant-hueLight;
+            border: 1px solid $dominant-hueLight;
+          }
+        }
+        &:last-child{
+          background-color: $dominant-hue;
+          color: $font-Whitecolor;
+          &:hover{
+            background-color: $dominant-hueLight;
+          }
+        }
+      }
+    }
+  }
+}
+.chatCenterBody{
+  width: 100%;
+  background-color: $font-Whitecolor;
+  box-sizing: border-box;
+  height: calc(100% - #{$chartHeader-userAreaHeight} - #{$chartHeader-chartHelpAreaHeight} - #{$chartFooter-emojiHeight} - #{$chart-textareaHeight} - #{$chartSendMsg-btnHeight} - 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px 10px;
+  overflow-y: auto;
+  @include scorllStyle;
+  li{
+    width: 100%;
+    &.dialogue{
+      width: 100%;
+      margin-bottom: 30px;
+      >header{
+        >span{
+          font-size: 14px;
+          color: $chartService-headerFontColor;
+          &:first-child{
+            margin-right: 12px;
+          }
+        }
+      }
+      >section{
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 20px;
+        border-radius: $border-radius;
+        word-break: break-all;
+        max-width: 80%;
+        display: inline-block;
+      }
+    }
+    &.chartCustomer{
+      >section{
+        background-color: $chartMain-bgColor;
+      }
+    }
+    &.chartService{
+      text-align: right;
+      >section{
+        text-align: left;
+        background-color: $chartService-contentBgColor;
+      }
+    }
+    &.chartComment{
+      width: $chart-commentWidht;
+      height: $chart-commentHeight;
+      border-radius: $border-radius;
+      margin: 0 auto;
+      background-color: $chart-commentBgColor;
+      font-size: 12px;
+      line-height: $chart-commentHeight;
+      text-align: center;
+      color: $font-Whitecolor;
+      span{
+        color: $dominant-hue;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.ChatCenterFooter{
+  width: 100%;
+  background-color: $body-bgColor;
+  >li{
+    &:first-child{
+      height: $chartFooter-emojiHeight;
+      background-color:$chartMain-bgColor;
+      @include flexLayout;
+      justify-content: flex-start;
+      .iconfont{
+        margin-left: 10px;
+        color: $chartFooter-emojiColor;
+        font-size: 25px;
+        cursor: pointer;
+        &:hover{
+          color: $dominant-hueLight;
+        }
+      }
+    }
+    &:nth-of-type(2){
+      textarea{
+        resize: none;
+        outline: none;
+        width: 100%;
+        height: $chart-textareaHeight;
+        border: none;
+        padding: 12px 12px 0 12px;
+        font-size: 14px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        @include scorllStyle;
+      }
+    }
+    &:last-child{
+      @include flexLayout;
+      justify-content: flex-end;
+      >button{
+        &.sendMsgBtn{
+          height: $chartSendMsg-btnHeight;
+          width: $chartSendMsg-btnWidht;
+          background-color: $dominant-hue;
+          border: 1px solid $dominant-hue;
+          border-radius: $border-radius;
+          color: $font-Whitecolor;
+          font-size: 16px;
+          cursor: pointer;
+          box-sizing: border-box;
+          margin: 0 20px 20px 0;
+          &:hover{
+            background-color: $dominant-hueLight;
+            border: 1px solid $dominant-hueLight;
+          }
+        }
+      }
+    }
+  }
+}

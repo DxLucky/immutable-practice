@@ -1,0 +1,66 @@
+@import "../../asset/style/dominant.scss";
+
+$imgUrl: '../../asset/images/';
+
+.custom-select {
+    display: inline-block;
+    position: relative;
+    height: 24px;
+    width: 210px;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 1px;
+    background: #ececec;
+    vertical-align: middle;
+    .custom-select-items{
+        position: absolute;
+        top: 24px;
+        left: 0;
+        min-width: 100%;
+        max-height: 122px;
+        overflow-y: auto;
+        border: 1px solid #ececec;
+        box-sizing: border-box;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(53, 120, 125, .34);
+        display: none;
+        z-index: 2;
+        .custom-select-item{
+            min-height: 24px;
+            line-height: 24px;
+            color: #666;
+            padding-left: 10px;
+            &:hover, &.selected {
+                background: #94c4fb;
+            }
+        }
+    }
+    .custom-select-text{
+        padding-left: 10px;
+        padding-right: 10px;        
+        display: block;
+        height: 100%;
+        line-height: 22px;
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        background: #fff;
+        i {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #666;
+            background: url('#{$imgUrl}down.png') no-repeat right center;
+            padding-right: 15px;
+            font-style: normal;
+
+        }
+    }
+    &.focus {
+        background: #539df1;        
+        .custom-select-items{
+            display: block;
+        }
+    }
+}

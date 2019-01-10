@@ -1,0 +1,8 @@
+@import "../../../asset/style/dominant.scss";
+$chartMain-bgColor:#efefef;
+.chatCenter{
+  height: 100%;
+  flex-grow: 1;
+  padding-left: 10px;
+  background-color: $chartMain-bgColor;
+}
